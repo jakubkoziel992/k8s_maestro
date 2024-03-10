@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odoo
+  namespace: odoo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: odo
+  template:
+    metadata:
+      labels:
+        app: odo
+  spec:
+    containers:
+      name: odo
+      image: /bitnami/odoo
