@@ -14,5 +14,18 @@ spec:
         app: odo
   spec:
     containers:
-      name: odo
+    - name: odo
       image: /bitnami/odoo
+      ports:
+      - containerPort: 8069
+      env:
+      - name: ODOO_PASSWORD
+        value: "k8smaestro"
+      - name: ODOO_DATABASE_NAME
+        value: "k8smaestro"
+      - name: ODOO_DATABASE_USER
+        value: "odoo"
+      - name: ODO_DATABASE_HOST
+        value: "odoo-postgres.odoo.svc.cluster.local" 
+      - name: ODO_DATABASE_PORT_NUMBER
+        value: "5432"
