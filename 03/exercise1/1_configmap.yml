@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: payment-configmap
+data: 
+  MARCHANT_ID: "123456"
+
