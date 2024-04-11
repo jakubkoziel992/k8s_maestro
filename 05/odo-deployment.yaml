@@ -13,6 +13,10 @@ spec:
       labels:
         app: odoo
     spec:
+      volumes:
+        - name: odoo-vol
+          persistentVolumeClaim:
+            claimName: pvc-odo 
       containers:
         - name: odoo
           image: docker.io/bitnami/odoo:16
@@ -29,3 +33,7 @@ spec:
               value: "5432"
             - name: ODOO_DATABASE_HOST
               value: "postgresql.odoo.svc.cluster.local"
+          volumeMounts:
+            - mountPath: /bitnami/odoo
+              name: odoo-vol
+
