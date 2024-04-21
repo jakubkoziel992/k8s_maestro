@@ -18,6 +18,13 @@ spec:
           image: docker.io/bitnami/odoo:16
           ports: 
             - containerPort: 8069
+          resources:
+            requets:
+              cpu: 300m
+              memory: 200Mi
+            limits:
+              cpu: 600m
+              memory: 400Mi
           env:
             - name: ODOO_DATABASE_PASSWORD
               value: "k8smaestro"
